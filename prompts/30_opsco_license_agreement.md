@@ -1,21 +1,29 @@
 ---
 id: 30_opsco_license_agreement
-version: 1.0.0
+version: 1.0.1
 uses: ./00_master_context.md
 output: /03_Contracts/opsco_license_agreement.md
 status: draft
 ---
 
 ## Objective
-Generate License & Services Agreement: Family IP LLC (Licensor) ↔ OpsCo (Licensee).
+Generate a GitHub-ready **License & Services Agreement** between **[COMPANY NAME]** (Licensor) and OpsCo (Licensee).
 
-## Must-use points
-- LLC licenses multisig XPUB systems; OpsCo remains legal owner of all bitcoin.
-- LLC services: address issuance, UTXO hygiene, key rotation, transaction coordination, logging.
-- Employees perform custodial duties as agents; client retains ≥1 key to avoid unilateral custody.
+## Must-use context
+- OpsCo remains sole legal owner of Bitcoin.  
+- [COMPANY NAME] licenses multisig XPUB systems and provides wallet coordination services.  
+- Employees act only as custodial agents.  
+- Licensee must retain ≥1 key to avoid unilateral custody.  
 
-## Sections
-Grant of License, Services, Ownership of Funds, Fees, Security Standards (reference Key Mgmt Policy), Confidentiality, Liability Limits, Termination, Governing Law.
+## Requirements
+- Sections: Grant of License, Services, Ownership of Funds, Fees & Payment, Security Standards, Confidentiality, Liability Limits, Term & Termination, Governing Law, Entire Agreement.  
+- Reference Key Management Policy for standards.  
+- Markdown format with `##` headings.  
+- Placeholders: [DATE], [STATE], [OPSCO NAME], [FEE AMOUNT].  
+
+## Constraints
+- US English, plain-English.  
+- No emojis.  
 
 ## Acceptance
-Markdown contract; consistent with master context.
+- Output must be a standalone `.md` contract under `/03_Contracts/`.  

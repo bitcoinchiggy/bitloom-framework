@@ -1,0 +1,50 @@
+site_name: Bitloom Framework
+site_description: A Bitcoin heirloom framework for families to manage custody, multisig, and intergenerational responsibility.
+site_url: https://bitcoinchiggy.github.io/bitloom-framework/
+repo_url: https://github.com/bitcoinchiggy/bitloom-framework
+repo_name: bitcoinchiggy/bitloom-framework
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - toc.integrate
+  palette:
+    - scheme: default
+
+nav:
+  - Home: index.md
+  - Employment:
+    - Employment Agreement (template): https://github.com/bitcoinchiggy/bitloom-framework/blob/main/01_Employment/employment_agreement_template.md
+    - Job Descriptions: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/01_Employment/job_descriptions.md
+  - Contracts:
+    - OpsCo License Agreement: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/03_Contracts/opsco_license_agreement.md
+    - Custody & Ownership Statement: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/03_Contracts/custody_ownership_statement.md
+    - Client Summary: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/03_Contracts/client_summary.md
+  - Policies:
+    - Key Management Policy: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/02_Policies/key_management_policy.md
+    - Backup & Resiliency Appendix: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/02_Policies/backup_resiliency_appendix.md
+    - Logging Template: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/02_Policies/logging_template.md
+    - Incident Report Template: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/02_Policies/incident_report_template.md
+  - Memos:
+    - Reasonable Compensation Memo: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/04_Memos/reasonable_compensation_memo.md
+    - IRS Audit Defense Packet: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/04_Memos/irs_audit_defense_packet.md
+    - W-2 Reporting Memo: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/04_Memos/w2_reporting_memo.md
+    - Trust & Estate Integration Note: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/04_Memos/trust_integration_note.md
+  - Diagrams:
+    - Wallet Design (Mermaid): https://github.com/bitcoinchiggy/bitloom-framework/blob/main/05_Diagrams/wallet_design_matrix.mmd
+    - Org Chart (Mermaid): https://github.com/bitcoinchiggy/bitloom-framework/blob/main/05_Diagrams/org_chart.mmd
+  - Prompts:
+    - Prompt Index: https://github.com/bitcoinchiggy/bitloom-framework/blob/main/prompts/README.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - def_list
+  - attr_list
+  - fenced_code

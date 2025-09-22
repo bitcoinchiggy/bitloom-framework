@@ -24,11 +24,11 @@ flowchart TD
 
 sequenceDiagram
   autonumber
-  participant OpsCo as OpsCo (Client)
-  participant Manager as Parent-Owned LLC Manager
-  participant Senior as Senior Tech (K2)
-  participant Junior as Junior Tech (K3)
-  participant Network as Bitcoin Network
+  participant OpsCo
+  participant Manager
+  participant Senior
+  participant Junior
+  participant Network
 
   OpsCo->>Manager: Submit transfer request (amount, destination)
   Manager->>Manager: Construct PSBT from multisig XPUB set

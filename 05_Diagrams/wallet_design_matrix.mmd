@@ -1,0 +1,54 @@
+%% Bitloom Framework – Wallet Design & Roles (Mermaid)
+
+%% --------- ORG/ROLES DIAGRAM ----------
+flowchart TD
+  A[OpsCo (Client)\n• Legal owner of BTC\n• Holds ≥1 signing key]:::client
+  B[Bitloom LLC (Licensor)\n• Coordinator & XPUB licensor\n• No unilateral custody]:::llc
+  C1[Senior Technician (Employee)\n• Custodial agent\n• Signs on instruction\n• Reviews logs]:::employee
+  C2[Junior Technician (Employee)\n• Custodial agent\n• Signs on instruction]:::employee
+  P[Key Management Policy\n(Backups • Rotation • Logging • Incidents)]:::policy
+
+  A --- B
+  B --- C1
+  B --- C2
+  B --- P
+
+  classDef client fill:#e5f5ff,stroke:#0090ff,stroke-width:1px,color:#002b45;
+  classDef llc fill:#f3f0ff,stroke:#6b46ff,stroke-width:1px,color:#1f1452;
+  classDef employee fill:#f5fff0,stroke:#50a000,stroke-width:1px,color:#153a00;
+  classDef policy fill:#fff6e5,stroke:#ff9900,stroke-width:1px,color:#4a2a00;
+
+%% --------- MULTISIG DESIGN MATRIX ----------
+%% 2-of-3 recommended to avoid unilateral custody.
+%% K1 held by OpsCo; K2 & K3 held by Bitloom employees as agents.
+
+%% Markdown-like table rendered as Mermaid comment for reference:
+%% | Model        | Keys (K1..K3)                    | Who Holds Keys                  | Unilateral Control? | Notes                          |
+%% |--------------|----------------------------------|----------------------------------|---------------------|--------------------------------|
+%% | 2-of-3 (rec) | K1, K2, K3                       | K1: OpsCo • K2: Senior • K3: Junior | No                  | Client retains 1 key           |
+%% | 2-of-3(risk) | K1, K2, K3                       | K1: Senior • K2: Junior • K3: Junior | Yes (LLC)           | Avoid: LLC could sign alone    |
+%% | 3-of-5(opt)  | K1..K5                           | 2 OpsCo • 3 Employees            | No (if split wisely) | Higher resilience, more ops    |
+
+%% --------- TRANSACTION FLOW ----------
+sequenceDiagram
+  autonumber
+  participant OpsCo as OpsCo (Client)
+  participant Manager as Bitloom Manager
+  participant Senior as Senior Tech (Key K2)
+  participant Junior as Junior Tech (Key K3)
+  participant Network as Bitcoin Network
+
+  OpsCo->>Manager: Submit transfer request (amount, destination, memo)
+  Manager->>Manager: Construct PSBT from multisig XPUB set
+  Manager->>Senior: Request signature on PSBT (K2)
+  Senior-->>Manager: Return partial signature
+  Manager->>Junior: Request signature on PSBT (K3)
+  Junior-->>Manager: Return partial signature
+  Manager->>Network: Broadcast fully signed transaction
+  Manager-->>OpsCo: Provide txid & log entry
+
+%% --------- LOGGING/COMPLIANCE HOOKS ----------
+%% Every signing event logged:
+%%  • Date/Time • Purpose • PSBT/txid • Approvals • Device IDs
+%% Backup verification & rotation logs link to policy.
+

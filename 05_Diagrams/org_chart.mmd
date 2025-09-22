@@ -1,0 +1,21 @@
+%% Bitloom Framework – Organization Chart (Mermaid)
+
+flowchart TD
+  A[Bitloom LLC\n(Licensor / Coordinator)]:::llc
+  A --> B[Manager / Supervisor\n• Contracts & client comms\n• Builds PSBTs • Broadcasts]:::mgr
+  B --> C1[Senior Technician\n• Custodial agent (K2)\n• Reviews logs • Trains juniors]:::senior
+  B --> C2[Junior Technician\n• Custodial agent (K3)\n• Signs on instruction]:::junior
+  A --> D[OpsCo (Client)\n• Legal owner of BTC\n• Holds ≥1 key (K1)]:::client
+
+  %% Notes block
+  N[[Key Management Policy\nBackups • Rotation • Logging • Incidents]]:::policy
+  A --- N
+  C1 --- N
+  C2 --- N
+
+  classDef llc fill:#f3f0ff,stroke:#6b46ff,stroke-width:1px,color:#1f1452;
+  classDef mgr fill:#e8f0ff,stroke:#3b82f6,stroke-width:1px,color:#0b2a61;
+  classDef senior fill:#f5fff0,stroke:#50a000,stroke-width:1px,color:#153a00;
+  classDef junior fill:#f5fff0,stroke:#66b800,stroke-width:1px,color:#153a00;
+  classDef client fill:#e5f5ff,stroke:#0090ff,stroke-width:1px,color:#002b45;
+  classDef policy fill:#fff6e5,stroke:#ff9900,stroke-width:1px,color:#4a2a00;

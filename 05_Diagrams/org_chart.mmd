@@ -1,14 +1,13 @@
-%% Bitloom Framework – Organization Chart (Mermaid)
+%% Organization Chart (Mermaid) — GitHub-compatible
 
 flowchart TD
-  A[Bitloom LLC\n(Licensor / Coordinator)]:::llc
-  A --> B[Manager / Supervisor\n• Contracts & client comms\n• Builds PSBTs • Broadcasts]:::mgr
-  B --> C1[Senior Technician\n• Custodial agent (K2)\n• Reviews logs • Trains juniors]:::senior
-  B --> C2[Junior Technician\n• Custodial agent (K3)\n• Signs on instruction]:::junior
-  A --> D[OpsCo (Client)\n• Legal owner of BTC\n• Holds ≥1 key (K1)]:::client
+  A[[[COMPANY NAME]<br/>(Licensor / Coordinator)]]:::llc
+  A --> B[Manager / Supervisor<br/>- Contracts and client comms<br/>- Builds PSBTs and broadcasts]:::mgr
+  B --> C1[Senior Technician<br/>- Custodial agent (K2)<br/>- Reviews logs<br/>- Trains juniors]:::senior
+  B --> C2[Junior Technician<br/>- Custodial agent (K3)<br/>- Signs on instruction]:::junior
+  A --> D[OpsCo (Client)<br/>- Legal owner of BTC<br/>- Holds >=1 key]:::client
 
-  %% Notes block
-  N[[Key Management Policy\nBackups • Rotation • Logging • Incidents]]:::policy
+  N([Key Management Policy<br/>Backups, Rotation, Logging, Incidents]):::policy
   A --- N
   C1 --- N
   C2 --- N

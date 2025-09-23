@@ -1,0 +1,17 @@
+%% Wallet Transaction Flow – Sequence Diagram (GitHub-compatible)
+
+sequenceDiagram
+  participant OpsCo
+  participant Manager
+  participant Senior
+  participant Junior
+  participant Network
+
+  OpsCo->>Manager: Submit transfer request (amount, destination)
+  Manager->>Manager: Construct PSBT from multisig XPUB set
+  Manager->>Senior: Request signature (K2)
+  Senior-->>Manager: Return partial signature
+  Manager->>Junior: Request signature (K3)
+  Junior-->>Manager: Return partial signature
+  Manager->>Network: Broadcast fully signed transaction
+  Manager-->>OpsCo: Provide txid and log entry

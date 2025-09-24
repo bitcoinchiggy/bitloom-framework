@@ -1,0 +1,48 @@
+flowchart LR
+  %% Styles
+  classDef parent fill:#e3f2fd,stroke:#1e88e5,stroke-width:1px,color:#000;
+  classDef sub fill:#eeeeee,stroke:#757575,stroke-width:1px,color:#000;
+  classDef ip fill:#bbdefb,stroke:#1976d2,stroke-width:1px,color:#000;
+  classDef svc fill:#e8f5e9,stroke:#43a047,stroke-width:1px,color:#000;
+  classDef emp fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,color:#000;
+  classDef note fill:#fff8e1,stroke:#fbc02d,stroke-width:1px,color:#000;
+
+  %% Parent and Sub
+  P["Parent LLC OpsCo1 Holding BTC"]:::parent
+  S["Sub LLC OpsCo2 Mining (SMLLC disregarded)"]:::sub
+  P --> S
+
+  %% Licensing
+  L["Licensing Co"]:::ip
+  P -->|Royalty for descriptors| L
+  S -->|Royalty for descriptors| L
+
+  %% Creator
+  C["Creator Co XPUB generation"]:::ip
+  L -->|Sub royalty| C
+
+  %% Employees
+  subgraph KEYS["Private Key Holders"]
+    E1["Employee 1 Key holder"]:::emp
+    E2["Employee 2 Key holder"]:::emp
+    E3["Employee 3 Key holder"]:::emp
+  end
+  C --> E1
+  C --> E2
+  C --> E3
+
+  %% Management
+  M["Management Co Services only"]:::svc
+  P -->|Mgmt fee| M
+  S -->|Mgmt fee| M
+  P -.->|Access only| M
+  S -.->|Access only| M
+
+  %% Notes
+  N1["Notes
+  1 Sub is disregarded for tax, all BTC flows to Parent
+  2 Royalties are for wallet descriptors
+  3 Sub royalty funds XPUB creation
+  4 Management Co provides services only"]:::note
+  N1 --- L
+

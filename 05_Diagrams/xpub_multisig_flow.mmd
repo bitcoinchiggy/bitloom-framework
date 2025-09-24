@@ -1,0 +1,30 @@
+flowchart LR
+  classDef ip fill:#e3f2fd,stroke:#1e88e5,stroke-width:1px,color:#000;
+  classDef svc fill:#e8f5e9,stroke:#43a047,stroke-width:1px,color:#000;
+  classDef ops fill:#eeeeee,stroke:#757575,stroke-width:1px,color:#000;
+  classDef emp fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,color:#000;
+
+  O["OpsCo - Holds BTC"]:::ops
+  M["Management Co - Services"]:::svc
+  L["Licensing Co - Multisig XPUBs"]:::ip
+  C["XPUB Creator Co"]:::ip
+
+  subgraph EMP[Private Key Holders]
+    E1["Employee 1 - Key Holder"]:::emp
+    E2["Employee 2 - Key Holder"]:::emp
+    E3["Employee 3 - Key Holder"]:::emp
+    E4["Employee 4 - Key Holder (optional)"]:::emp
+    E5["Employee 5 - Key Holder (optional)"]:::emp
+  end
+
+  O -->|Royalty fee - multisig XPUB set| L
+  L -->|Sub-royalty - XPUBs| C
+  O -->|Management fee - wallet ops, node, reporting| M
+  O -.->|Access only for OpsCo benefit - no license| M
+
+  C --> E1
+  C --> E2
+  C --> E3
+  C --> E4
+  C --> E5
+
